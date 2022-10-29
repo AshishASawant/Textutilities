@@ -18,6 +18,12 @@ export default function Textarea(props) {
     settext("");
     props.showalert("Textarea has been cleared")
   }
+  function handletocopy() {
+    let copyText = text
+  
+  navigator.clipboard.writeText(copyText);
+  props.showalert("Text copied")
+  }
 
 
   const [text, settext] = useState("");
@@ -44,6 +50,12 @@ export default function Textarea(props) {
             >
               Convert To Lowercase
             </button>
+            <button
+              className="btn btn-primary mx-2 my-2"
+              onClick={handletocopy}
+            >
+              Copy to clipboard
+            </button>
             <button className="btn btn-primary mx-2 my-2" onClick={handletoclear}>
               Clear
             </button>
@@ -55,7 +67,7 @@ export default function Textarea(props) {
             {text.split(/\s+/).filter((element)=>{return element.length!==0}).length} words / {text.length} characters
           </button>
           <p>
-            Estimated reading time:<b>{text.split(" ").filter((element)=>{return element.length!==0}).length / 30} minutes</b>
+            Estimated reading time:<b>{text.split(" ").filter((element)=>{return element.length!==0}).length / 200} minutes</b>
           </p>
           <h2>Preview</h2>
           <p className="container">{text.length===0?"Nothing to preview":text}</p>

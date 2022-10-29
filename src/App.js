@@ -1,13 +1,13 @@
 import { useState } from "react";
 import Navbar from "./Components/Navbar";
 import Textarea from "./Components/Textarea"
-import Contact from "./Components/Contact"
 import Alert from "./Components/Alert";
 import {
   BrowserRouter as Router,
   Routes,
   Route,
 } from "react-router-dom";
+import About from "./Components/About";
 
 function App() {
   const [mode,setmode]=useState("light")
@@ -43,7 +43,7 @@ function App() {
       <div className="container">
       <Routes>
         <Route path="/" element={<Textarea mode={mode} showalert={showalert}/>}></Route>
-        <Route path="contact" element={<Contact/>}></Route>
+        <Route path="about" element={<About mode={mode} />}></Route>
       </Routes>
       </div>
       </Router>
